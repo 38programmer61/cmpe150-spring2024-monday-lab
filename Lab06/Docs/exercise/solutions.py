@@ -206,7 +206,7 @@ print(alphabetical_order("red, white, black, red, green, black"),
 def not_poor(original_str):
     not_start_index, not_end_index = find_start_and_end_indexes(original_str, 'not')
     poor_start_index, poor_end_index = find_start_and_end_indexes(original_str, 'poor')
-    if not_start_index < poor_start_index:
+    if not_start_index != len(original_str) and poor_start_index != len(original_str) and not_start_index < poor_start_index:
         return original_str[:not_start_index] + 'good' + original_str[poor_end_index+1:]
     else:
         return original_str
@@ -220,6 +220,7 @@ def find_start_and_end_indexes(original_str, word):
 
 print(not_poor("The lyrics is not that poor!"), not_poor("The lyrics is not that poor!") == "The lyrics is good!")
 print(not_poor("The lyrics is poor!"), not_poor("The lyrics is poor!") == "The lyrics is poor!")
+
 
 # Question 9 - Find and replace
 # Write a function that takes 3 strings input, a and b and replaces all
